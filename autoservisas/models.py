@@ -21,8 +21,25 @@ class Car(models.Model):
 
 class Service(models.Model):
     name = models.CharField(verbose_name="Pavadinimas", max_length=100)
-    price = models.DecimalField(verbose_name="Kaina")
+    price = models.IntegerField(verbose_name="Kaina")
 
     def __str__(self):
         return f" Serviso pavadinimas {self.name}, kaina  {self.price}"
 
+
+class Order(models.Model):
+    car = models.ForeignKey(to="Car", verbose_name="Automobilis", on_delete=models.SET_NULL, null=True, blank=True)
+    date = models.DateTimeField(verbose_name="Data", auto_now_add=True)
+    # TODO total
+
+    def __str__(self):
+        return f" Automobilis {self.car}, Data  {self.date}"
+
+class OrderLine(models.Model):
+    order = models.ForeignKey(to="Order",verbose_name="Uzsakymas", on_delete=models.CASCADE)
+    service = models.ForeignKey(to="Service", verbose_name="Paslauga", on_delete=models.SET_NULL, null=True, blank=True)
+    quantity = models.IntegerField(verbose_name="Kiekis")
+    # TODO SUM
+
+    def __str__(self):
+        return f"{self.service} - {self.quantity}"
