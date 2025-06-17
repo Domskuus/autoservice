@@ -15,8 +15,9 @@ class OrderInstanceLine(admin.TabularInline):
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display =  ['car', 'date']
+    list_display =  ['car', 'date', 'status']
     inlines = [OrderInstanceLine]
+    list_editable = ('status',)
 
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ['name', 'price']

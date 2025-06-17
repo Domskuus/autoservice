@@ -42,12 +42,30 @@ class Service(models.Model):
 
 
 class Order(models.Model):
+    STATUS_PENDING = "Laukiama patvirtinimo"
+    STATUS_APPROVED = "Uzsakymas Patvirtintas"
+    STATUS_REJECTED = "Uzsakymas Atmestas"
+    STATUS_COMPLETED = "Uzsakymas atliktas"
+
+    STATUS_CHOICES = [
+        (STATUS_PENDING, 'Laukiama patvirtinimo'),
+        (STATUS_APPROVED, 'Uzsakymas Patvirtintas'),
+        (STATUS_REJECTED, 'Uzsakymas atmestas'),
+        (STATUS_COMPLETED, 'Uzsakymas Atliktas')
+
+    ]
     car = models.ForeignKey(to="Car", verbose_name="Automobilis", on_delete=models.SET_NULL, null=True, blank=True)
     date = models.DateTimeField(verbose_name="Data", auto_now_add=True)
+    status = models.CharField(max_length=30, choices=STATUS_CHOICES, default=STATUS_PENDING)
     # TODO total
 
+
+
     def __str__(self):
-        return f" Uzsakymas {self.id}, Data : {self.date}, Automobilis  {self.car}"
+        return f" Automobilis  {self.car}, Data : {self.date}"
+
+    # def total(self):
+    #     return sum(line.total_sum)
 
     class Meta:
         verbose_name = "Užsakymas"
