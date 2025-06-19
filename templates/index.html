@@ -1,13 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
- <meta charset="UTF-8" />
-    <title>Autoservisas Homepage</title>
-</head>
-<body>
-    <h1>Welcome to Autoservisas</h1>
-    <p>Total number of cars: {{ num_car }}</p>
-    <p>Total number of orders: {{ num_orders }}</p>
-    <p>Total number of completed orders: {{num_service_completed}}</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Home - Automobiliu servisas{% endblock %}
+
+{% block content %}
+<header class="py-5">
+    <div class="container px-lg-5">
+        <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+            <div class="m-4 m-lg-5">
+                <h1 class="display-5 fw-bold">Sveiki atvyke į Autoserviso puslapi!</h1>
+                <p class="fs-4">Total number of cars: {{ num_car }}</p>
+                <p class="fs-4">Total number of orders: {{ num_orders }}</p>
+                <p class="fs-4">Total number of completed orders: {{num_service_completed}}</p>
+
+            </div>
+        </div>
+    </div>
+</header>
+<section class="pt-4">
+    <div class="container px-lg-5">
+        <!-- Your page content here -->
+    </div>
+</section>
+{% endblock %}

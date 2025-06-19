@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Automobiliai{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Registruoti automobiliai servise</h1>
+    <ul class="list-group">
+        {% for car in models %}
+            <li class="list-group-item">
+                <a href="{% url 'carmodel' car.id %}">
+                    {{ car.make }} - {{ car.model }}
+                </a>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Nėra registruotų automobilių.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

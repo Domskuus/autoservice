@@ -18,3 +18,23 @@ def index(request):
     }
 
     return render(request, 'index.html', context)
+
+
+
+
+def carmodels(request):
+
+    carmodels = CarModel.objects.all()
+    context = {'models': carmodels}
+    print(carmodels)
+    return render(request, 'automobiliai.html', context)
+
+def carmodel(request, carmodel_id):
+    carmodel = CarModel.objects.get(pk=carmodel_id)
+    return render(request, 'automobilis.html', {'automobilis' : carmodel})
+
+
+# class OderListView(generic.Listview):
+#     model = Order
+#     template_name = 'orders.html'
+#     context_object_name = 'orders'
