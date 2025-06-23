@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Užsakymas{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1>Užsakymo informacija</h1>
+  <p style="margin-bottom: 5px"><strong>Užsakymas:</strong> {{ uzsakymas.order}}</p>
+  <p style="margin-bottom: 5px"><strong>Paslaugos:</strong> {{ uzsakymas.service.name }}</p>
+  <p style="margin-bottom: 5px"><strong>Kiekis: </strong> {{uzsakymas.quantity }}</p>
+  <p style="margin-bottom: 5px"><strong>Kaina: </strong> {{ uzsakymas.quantity|floatformat:2 }} × {{ uzsakymas.service.price|floatformat:2 }} = <strong> {{total_price|floatformat:2 }} </strong></p>
+
+</div>
+{% endblock %}

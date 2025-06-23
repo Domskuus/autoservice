@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  {% extends "base.html" %}
+{% extends "base.html" %}
+{% load static %}
 
-{% block "title" %}Automobilis{% endblock %}
+{% block title %}Automobilis{% endblock %}
 
-{% block "content" %}
-<p><strong>Modelis: </strong>{{ CarModel.model}}</p>
-<p><strong>Marke: </strong>{{ CarModel.make }}</p>
-<hr>
-<p><strong>Savininkai:</strong></p>
+{% block content %}
+<div class="container mt-4">
+  <h1>Automobilio informacija</h1>
+  <p style="margin-bottom: 5px"><strong>Modelis:</strong> {{ automobilis.auto_model }}</p>
+  <p style="margin-bottom: 5px"><strong>Numeris:</strong> {{ automobilis.license_plate }}</p>
+  <p style="margin-bottom: 5px"><strong>Savininkas: </strong> {{automobilis.client_name }}</p>
+  <p style="margin-bottom: 5px"><strong>VIN Numeris: </strong> {{automobilis.vin_number }}</p>
+
+</div>
 {% endblock %}
-</head>
-<body>
-
-</body>
-</html>

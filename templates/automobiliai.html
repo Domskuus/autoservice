@@ -6,16 +6,55 @@
 {% block content %}
 <div class="container mt-5">
     <h1 class="mb-4">Registruoti automobiliai servise</h1>
-    <ul class="list-group">
-        {% for car in models %}
+
+    <ul class="list-group mb-4">
+        {% for car in cars %}
             <li class="list-group-item">
                 <a href="{% url 'carmodel' car.id %}">
-                    {{ car.make }} - {{ car.model }}
+                    {{ car.auto_model.make }} - {{ car.auto_model.model }} ({{ car.license_plate }})
                 </a>
             </li>
         {% empty %}
             <li class="list-group-item">Nėra registruotų automobilių.</li>
         {% endfor %}
     </ul>
+
+    {% if is_paginated %}
+    <div class="container puslapiai">
+        <nav aria-label="Puslapiavimas">
+            <ul class="pagination pagination-sm justify-content-center">
+                {% if cars.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1">&laquo;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ cars.previous_page_number }}">atgal</a>
+                    </li>
+                {% endif %}
+
+                {% for i in cars.paginator.page_range %}
+                    {% if cars.number == i %}
+                        <li class="page-item active">
+                            <a class="page-link">{{ i }}</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if cars.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ cars.next_page_number }}">pirmyn</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ cars.paginator.num_pages }}">&raquo;</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

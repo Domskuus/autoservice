@@ -4,17 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="273e1c2d-e847-4d2c-b0cf-d851cd92881c" name="Changes" comment="Adding html part">
-      <change afterPath="$PROJECT_DIR$/autoservisas/static/autoservisas/assets/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/autoservisas/static/autoservisas/js/scripts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/automobiliai.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/automobilis.html" afterDir="false" />
+    <list default="true" id="273e1c2d-e847-4d2c-b0cf-d851cd92881c" name="Changes" comment="Workingo n website">
+      <change afterPath="$PROJECT_DIR$/templates/registration/logged_out.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_complete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_confirm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_done.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_email.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/statistika.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/uzsakymai.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/uzsakymas.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoservice/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservice/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoservisas/static/autoservisas/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/autoservisas/static/autoservisas/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoservisas/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservisas/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoservisas/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservisas/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/automobiliai.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/automobiliai.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/automobilis.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/automobilis.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
@@ -54,16 +61,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Domis/PycharmProjects/autoservice/autoservisas/static/autoservisas"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Domis/PycharmProjects/autoservice/autoservisas/static/autoservisas&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Domis\PycharmProjects\autoservice\autoservisas\static\autoservisas" />
@@ -135,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750165231532</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Workingo n website">
+      <option name="closed" value="true" />
+      <created>1750312337031</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1750312337031</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -155,6 +170,7 @@
     <MESSAGE value="Sukurti modelis ir prideti i admin" />
     <MESSAGE value="Adding more design" />
     <MESSAGE value="Adding html part" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding html part" />
+    <MESSAGE value="Workingo n website" />
+    <option name="LAST_COMMIT_MESSAGE" value="Workingo n website" />
   </component>
 </project>

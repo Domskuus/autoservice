@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Užsakymai{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="mb-4">Užsakymai</h1>
+
+  {% if uzsakymai %}
+  <div class="list-group">
+    {% for order in uzsakymai %}
+      <div class="list-group-item mb-3 shadow-sm rounded">
+        <h5>
+          Automobilis:
+          {% if order.car %}
+          <a href="{% url 'uzsakymas' order.id %}">
+            {{ order.car.auto_model.make }} {{ order.car.auto_model.model }} ({{ order.car.license_plate }})
+          </a>
+          {% else %}
+            Nenurodytas automobilis
+          {% endif %}
+        </h5>
+        <p><strong>Data:</strong> {{ order.date|date:"Y-m-d H:i" }}</p>
+        <p><strong>Statusas:</strong>
+          <span class="
+            {% if order.status == 'Laukiama patvirtinimo' %}text-warning
+            {% elif order.status == 'Uzsakymas Patvirtintas' %}text-primary
+            {% elif order.status == 'Uzsakymas Atmestas' %}text-danger
+            {% elif order.status == 'Uzsakymas Atliktas' %}text-success
+            {% endif %}
+          ">
+            {{ order.status }}
+          </span>
+        </p>
+      </div>
+    {% endfor %}
+  </div>
+  {% else %}
+    <p>Užsakymų nėra.</p>
+  {% endif %}
+
+   {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">&laquo; pirmas</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">atgal</a>
+                </li>
+            {% endif %}
+
+            <li class="page-item disabled">
+                <span class="page-link">{{ page_obj.number }} iš {{ page_obj.paginator.num_pages }}</span>
+            </li>
+
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">pirmyn</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">paskutinis &raquo;</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+
+
+
+</div>
+{% endblock %}
