@@ -8,5 +8,7 @@ urlpatterns = [
     path('automobiliai/<int:car_id>', views.carmodel, name='carmodel'),
     path('uzsakymai/',OrderListView.as_view(), name='uzsakymai'),
     path('uzsakymai/<int:order_id>', views.order, name='uzsakymas'),
-    path('vartotojai/', include('django.contrib.auth.urls'))
+    path('vartotojai/', include('django.contrib.auth.urls')),
+    path('search/', views.search, name='search'),
+    path('mano_uzsakymai', views.MyOrderInstanceListView.as_view(), name="mano_uzsakymai"),
 ]

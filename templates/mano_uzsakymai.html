@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Mano užsakymai{% endblock %}
+
+{% block content %}
+<h1>Mano užsakymai:</h1>
+{% for order in mano_uzsakymai %}
+  <li>
+      <a href="{% url 'uzsakymas' order.id %}" style="color:blue;">
+        Automobilis {{ order.car.auto_model }} ({{ order.car.license_plate }})
+      </a>,
+      <span style="color:{% if order.is_overdue %}red{% else %}black{% endif %};">
+        {{ order.date|date:"Y-m-d H:i" }}
+      </span>
+    </li>
+  {% empty %}
+    <li>Jūs neturite užsakymų.</li>
+{% endfor %}
+{% endblock %}

@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from datetime import date
 
 # Create your models here.
 
@@ -57,12 +59,18 @@ class Order(models.Model):
     car = models.ForeignKey(to="Car", verbose_name="Automobilis", on_delete=models.SET_NULL, null=True, blank=True)
     date = models.DateTimeField(verbose_name="Data", auto_now_add=True)
     status = models.CharField(max_length=30, choices=STATUS_CHOICES, default=STATUS_PENDING)
-    # TODO total
+    client = models.ForeignKey(to=User, verbose_name="Užsakovas", on_delete=models.SET_NULL, null=True, blank=True)
+    due_back = models.DateField(verbose_name="Gražinimo data", null= True, blank= True)
 
+
+    def is_overdue(self):
+        if self.due_back and date.today() > self.due_back:
+            return True
+        return False
 
 
     def __str__(self):
-        return f" Automobilis  {self.car}, Data : {self.date}"
+        return f" Automobilis {self.car.auto_model} ({self.car.license_plate}), Data : {self.date.strftime("%Y-%m-%d %H:%M")}"
 
     # def total(self):
     #     return sum(line.total_sum)
@@ -78,10 +86,12 @@ class OrderLine(models.Model):
     service = models.ForeignKey(to="Service", verbose_name="Paslauga", on_delete=models.SET_NULL, null=True, blank=True)
     quantity = models.IntegerField(verbose_name="Kiekis")
 
+
     def total_sum(self):
         if self.service:
             return self.quantity * self.service.price
         return 0
+
 
     def __str__(self):
         return f"{self.service} - {self.quantity}, Bendra Suma :{self.total_sum()}"

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Paieškos rezultatai{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Paieškos rezultatai: <span class="text-primary">"{{ query }}"</span></h2>
+
+    {% if cars %}
+        <div class="mb-4">
+            <h4 class="text-success">Užsakymai, rasti pagal paiešką:</h4>
+            <ul class="list-group list-group-flush">
+                {% for car in cars %}
+                    <li class="list-group-item">
+                        <a href="{% url 'carmodel' car.pk %}" class="text-decoration-none">{{ car }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    {% if orders %}
+        <div class="mb-4">
+            <h4 class="text-success">Mašinos, rastos pagal paiešką:</h4>
+            <ul class="list-group list-group-flush">
+                {% for order in orders %}
+                    <li class="list-group-item">
+                        <a href="{% url 'order' order.pk %}" class="text-decoration-none">{{ order }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    {% if not cars and not orders %}
+        <div class="alert alert-warning mt-4" role="alert">
+            <strong>Oops!</strong> Nieko neradome pagal užklausą <em>"{{ query }}"</em>.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

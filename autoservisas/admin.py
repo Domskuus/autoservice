@@ -15,9 +15,10 @@ class OrderInstanceLine(admin.TabularInline):
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display =  ['car', 'date', 'status']
+    list_display =  ['car', 'date', 'status', 'client', 'due_back']
     inlines = [OrderInstanceLine]
-    list_editable = ('status',)
+    list_filter = ['status', 'due_back']
+    list_editable = ['status', 'due_back']
 
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ['name', 'price']
@@ -28,6 +29,9 @@ class OrderLineAdmin(admin.ModelAdmin):
     def bendra_suma(self, obj):
         return obj.total_sum()
     bendra_suma.short_description = 'Bendra Suma'
+
+
+
 
 
 

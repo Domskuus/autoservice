@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from .models import CarModel, Car, Order, OrderLine, Service
 from django.views import generic
 from django.core.paginator import Paginator
+from django.db.models import Q
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -48,19 +50,39 @@ class OrderListView(generic.ListView):
     paginate_by = 3
 
 def order(request, order_id):
-    order = OrderLine.objects.get(pk=order_id)
-    total_price = order.quantity * order.service.price
-    return render(request, 'uzsakymas.html', {'uzsakymas' : order, 'total_price': total_price})
+    order = get_object_or_404(Order, pk=order_id)
+    orderlines = OrderLine.objects.filter(order=order)
+    total_price = sum(line.total_sum() for line in orderlines)
+    return render(request, 'uzsakymas.html', {'uzsakymas' : order,'orderlines': orderlines, 'total_price': total_price})
 
-# class CarListView(generic.ListView):
-#     model = Car
-#     template_name = 'automobiliai.html'
-#     context_object_name = 'automobiliai'
-#     paginate_by = 3
+def search(request):
+    """
+    paprasta paieška. query ima informaciją iš paieškos laukelio,
+    search_results prafiltruoja pagal įvestą tekstą knygų pavadinimus ir aprašymus.
+    Icontains nuo contains skiriasi tuo, kad icontains ignoruoja ar raidės
+    didžiosios/mažosios.
+    """
+    query = request.GET.get('query')
 
+    car_search_results = Car.objects.filter(
+        Q(license_plate__icontains=query) | Q(auto_model__model__icontains=query) | Q(vin_number__icontains=query) | Q(
+            client_name__icontains=query) | Q(auto_model__make__icontains=query))
 
+    order_search_results = OrderLine.objects.filter(
+        Q(order__status__icontains=query) | Q(service__name__icontains=query))
 
-# class OderListView(generic.Listview):
-#     model = Order
-#     template_name = 'orders.html'
-#     context_object_name = 'orders'
+    context = {
+        "query": query,
+        "cars": car_search_results,
+        "orders": order_search_results
+
+    }
+    return render(request, template_name="search.html", context=context)
+
+class MyOrderInstanceListView(LoginRequiredMixin, generic.ListView):
+    model = Order
+    template_name = 'mano_uzsakymai.html'
+    context_object_name = 'mano_uzsakymai'
+
+    def get_queryset(self):
+        return Order.objects.filter(client=self.request.user)
