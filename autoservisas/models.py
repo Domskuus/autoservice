@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import date
+from tinymce.models import HTMLField
 
 # Create your models here.
 
@@ -22,6 +23,7 @@ class Car(models.Model):
     auto_model = models.ForeignKey(to="CarModel", on_delete=models.SET_NULL, null=True, blank=True)
     vin_number = models.CharField(verbose_name="VIN Kodas", max_length=20, help_text="Iveskite VIN koda")
     client_name = models.CharField(verbose_name="Klientas", max_length=20)
+
 
     def __str__(self):
         return f" Masinos modelis {self.auto_model}, masinos numeris {self.license_plate}"
@@ -99,3 +101,15 @@ class OrderLine(models.Model):
     class Meta:
         verbose_name = "Užsakymo eilutė"
         verbose_name_plural = "Užsakymo eilutės"
+
+
+class OrderReview(models.Model):
+    order = models.ForeignKey(to="Order", verbose_name="Užsakymas", on_delete=models.SET_NULL, null=True, blank=True, related_name="reviews")
+    reviewer = models.ForeignKey(to=User, verbose_name="Komentatorius", on_delete=models.SET_NULL, null=True, blank=True)
+    date_created = models.DateTimeField(verbose_name="Data", auto_now_add=True)
+    content = models.TextField(verbose_name="Atsiliepimai", max_length=2000)
+
+    class Meta:
+        verbose_name = "Atsiliepimas"
+        verbose_name_plural = "Atsiliepimai"
+        ordering = ['-date_created']

@@ -11,18 +11,45 @@
   <p><strong>Data:</strong> {{ uzsakymas.date|date:"Y-m-d H:i" }}</p>
   <p><strong>Statusas:</strong> {{ uzsakymas.status }}</p>
 
-  <h2>Paslaugos:</h2>
-  <ul>
-    {% for line in orderlines %}
-      <li>
-        {{ line.service.name }} x {{ line.quantity }} –
-        {{ line.total_sum }} €
-      </li>
-    {% empty %}
-      <li>Paslaugų nėra</li>
-    {% endfor %}
-  </ul>
+  <h2>Paslaugos</h2>
+  {% if orderlines %}
+    <ul>
+      {% for line in orderlines %}
+        <li>{{ line.service.name }} × {{ line.quantity }} – {{ line.total_sum }} €</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Paslaugų nėra</p>
+  {% endif %}
 
-  <p><strong>Bendra suma:</strong> {{ total_price }} €</p>
+  <p style="font-weight: bold; font-size: 1.2em; margin-top: 1rem;">
+    Bendra suma: <span style="color: green;">{{ total_price }} €</span>
+  </p>
+
+  <hr>
+
+  <h2>Komentarai</h2>
+  {% if uzsakymas.reviews.all %}
+    {% for review in uzsakymas.reviews.all %}
+      <div style="border-bottom: 1px solid #ddd; padding: 0.5rem 0;">
+        <p><strong>{{ review.reviewer }}</strong> — <small>{{ review.date_created|date:"Y-m-d H:i" }}</small></p>
+        <p>{{ review.content|linebreaks }}</p>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>Nėra atsiliepimų.</p>
+  {% endif %}
+
+  {% if user.is_authenticated %}
+  <hr>
+  <h2>Palikite atsiliepimą</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" style="padding: 0.5rem 1rem; font-size: 1rem;">Paskelbti</button>
+  </form>
+  {% else %}
+  <p>Prisijunkite, kad galėtumėte palikti atsiliepimą.</p>
+  {% endif %}
 </div>
 {% endblock %}

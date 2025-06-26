@@ -5,16 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="273e1c2d-e847-4d2c-b0cf-d851cd92881c" name="Changes" comment="ton of progress">
-      <change afterPath="$PROJECT_DIR$/templates/mano_uzsakymai.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/autoservisas/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoservice/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservice/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoservice/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservice/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoservisas/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservisas/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoservisas/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservisas/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoservisas/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservisas/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoservisas/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservisas/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/uzsakymas.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/uzsakymas.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750677108458</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ton of progress">
+      <option name="closed" value="true" />
+      <created>1750854130109</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1750854130109</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
