@@ -34,6 +34,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'autoservisas',
+    'crispy_forms',
+    'crispy_bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -141,3 +143,5 @@ EMAIL_HOST_USER = 'mano_pastas@gmail.com'
 # el. pašto adresas iš kurio siųsite
 EMAIL_HOST_PASSWORD = 'VerySecret'
 # slaptažodis
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

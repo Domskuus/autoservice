@@ -113,3 +113,10 @@ class OrderReview(models.Model):
         verbose_name = "Atsiliepimas"
         verbose_name_plural = "Atsiliepimai"
         ordering = ['-date_created']
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    photo = models.ImageField(default="profile_pics/default.png", upload_to="profile_pics")
+
+    def __str__(self):
+        return f"{self.user.username} profilis"

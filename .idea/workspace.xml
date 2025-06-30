@@ -4,19 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="273e1c2d-e847-4d2c-b0cf-d851cd92881c" name="Changes" comment="ton of progress">
-      <change afterPath="$PROJECT_DIR$/autoservisas/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
+    <list default="true" id="273e1c2d-e847-4d2c-b0cf-d851cd92881c" name="Changes" comment="added comment section">
+      <change afterPath="$PROJECT_DIR$/autoservisas/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoservice/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservice/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoservice/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservice/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoservisas/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservisas/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoservisas/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservisas/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoservisas/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservisas/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoservisas/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservisas/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoservisas/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservisas/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoservisas/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoservisas/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/uzsakymas.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/uzsakymas.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750854130109</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added comment section">
+      <option name="closed" value="true" />
+      <created>1750970719846</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1750970719846</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -181,6 +189,7 @@
     <MESSAGE value="Adding html part" />
     <MESSAGE value="Workingo n website" />
     <MESSAGE value="ton of progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="ton of progress" />
+    <MESSAGE value="added comment section" />
+    <option name="LAST_COMMIT_MESSAGE" value="added comment section" />
   </component>
 </project>
